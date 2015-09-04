@@ -20,11 +20,12 @@ public class AndroidCapabilities {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         
 		capabilities.setCapability("platformName", "Android");
+		capabilities.setCapability("deviceName", "Cubot");
     	capabilities.setCapability("app", "/Users/Rakatak/Eclipse-Projects/LiquidRakatak/app/build/outputs/apk/app-debug.apk");
     	
 		wd = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
-        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 
         return wd;          
 

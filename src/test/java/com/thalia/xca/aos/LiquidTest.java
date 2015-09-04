@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,44 +24,60 @@ public class LiquidTest {
     	wd = aCap.setCap();
     }
     
+    @After
+    public void tearDown() throws Exception {
+    	wd.quit();
+    }
+    
     @Test
     public void registerTest() throws Exception {
     	
     	MobileElement element;
     	
-    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/startbutton");
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/btnStart");
+    	element.click();
     	
-    	element = wd.findElementByName("Start Pouring	");
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/btnAccount");
+    	element.click();
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/btnRegister");
+    	element.click();
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/nameField");
+    	element.sendKeys("Solidus Snake");
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/emailField");
+    	element.sendKeys("solidus@snake.com");
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/passwordField");
+    	element.sendKeys("snake!");
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/btnRegister");
+    	element.click();
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/displayName");
+    	final String displayName = element.getText();
+
+    	assertTrue("The username is not correctly displayed", displayName.equals("Solidus Snake"));
+    	
+    	element = wd.findElementById("com.example.rakatak.liquidrakatak:id/displayEmail");
+    	final String displayEmail= element.getText();
+    	
+    	assertTrue("The user-email is not correctly displayed", displayEmail.equals("solidus@snake.com"));
+    	
+    	
+    	
+    	
+    	
+    	wd.swipe(300, 800, 300, 800, 500);
+    	
+    	wd.tap(1, 300, 600, 500);
+    	
     }
-    
-    
-    
-    
-    
-    
     
  
     
-    @Test
-    public void countrySelectionTest() throws Exception {
 
-    	AbstractExcAction action =  new AbstractExcAction(wd){
-			@Override
-			public void actionPerformedWithThrows() throws NoSuchElementException, InterruptedException {
-								    	
-		    	eName = "eu.thalia.app:id/accountsettings_item";
-				element = wd.findElementById(eName);		
-				element.click();
-				Thread.sleep(1000);
-			
-				eName = "eu.thalia.app:id/prefs_mandant_and_username";
-				element = wd.findElementById(eName);
-		    	Thread.sleep(500);
-		    	
-		    	assertTrue("User preferences doesn't match the shop selection", element.getAttribute("name").contains("Deutschland"));	
-		    }
-    	};	
-    	action.performAction();
-    }
-      
+    
+    
 }
