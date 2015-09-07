@@ -6,11 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.NoSuchElementException;
-
-import com.thalia.xca.aos.prop.AbstractExcAction;
 import com.thalia.xca.aos.prop.AndroidCapabilities;
 
 public class LiquidTest {
@@ -64,20 +60,5 @@ public class LiquidTest {
     	final String displayEmail= element.getText();
     	
     	assertTrue("The user-email is not correctly displayed", displayEmail.equals("solidus@snake.com"));
-    	
-    	
-    	
-    	
-    	
-    	wd.swipe(300, 800, 300, 800, 500);
-    	
-    	wd.tap(1, 300, 600, 500);
-    	
     }
-    
- 
-    
-
-    
-    
 }
