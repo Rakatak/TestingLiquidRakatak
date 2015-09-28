@@ -45,10 +45,6 @@
 							<name>PORT</name>
 							<value>${PORT}</value>
 						</property>
-						<property>
-							<name>MODE</name>
-							<value>${MODE}</value>
-						</property>
 					</systemProperties>
 					<source>1.7</source>
 					<target>1.7</target>

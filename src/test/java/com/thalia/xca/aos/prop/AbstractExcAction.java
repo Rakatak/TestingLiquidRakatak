@@ -48,7 +48,6 @@ public abstract class AbstractExcAction {
 				wd.quit();
 			} catch (SessionNotFoundException e) {
 	    		assertTrue("Before clicking Element \"" + eName + "\" the app broke down: SessionNotFoundException", false);
-	
 			}
 		}
 	}

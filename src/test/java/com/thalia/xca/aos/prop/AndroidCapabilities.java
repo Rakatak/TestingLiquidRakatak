@@ -12,9 +12,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AndroidCapabilities {
 	
-    public AndroidCapabilities (){
-    }
-    
 	public AndroidDriver<MobileElement> setCap() throws InterruptedException, IOException{
 
 		final String currentUser = System.getProperty("user.name");
